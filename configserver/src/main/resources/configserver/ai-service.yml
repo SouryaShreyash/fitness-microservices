@@ -1,0 +1,35 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+rabbitmq:
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: activity.queue
+  routing:
+    key: activity.tracking
+
+mongodb:
+  uri: mongodb://localhost:27017/FitnessRecommendation
+  database: FitnessRecommendation
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    instance-id: ${spring.application.name}:${server.port}
+
+gemini:
+  api:
+    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent
+    key:  AIzaSyAvsZNWyDwf_Yk3bpM9z7VwKqVzm35XCcU
